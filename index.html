@@ -8,211 +8,192 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       background-image: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1950&q=80');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-attachment: fixed;
       background-size: cover;
-      color: #0B3C5D;
+      background-attachment: fixed;
+      background-position: center;
       margin: 0;
       padding: 20px;
       min-height: 100vh;
       backdrop-filter: brightness(0.9);
+      color: #0B3C5D;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     h1 {
-      margin-bottom: 20px;
-      text-align: center;
       font-size: 2.5em;
-      text-shadow: 0 1px 2px rgba(255,255,255,0.7);
+      margin-bottom: 10px;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.8);
     }
 
     .logo-placeholder {
-      width: 300px;
-      height: 150px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 250px;
+      height: auto;
+      background: white;
+      padding: 10px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       margin-bottom: 30px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
+
     .logo-placeholder img {
-      max-width: 100%;
-      max-height: 100%;
+      width: 100%;
+      height: auto;
       object-fit: contain;
+      display: block;
     }
 
     .info {
-      background: rgba(255,255,255,0.9);
-      padding: 25px 30px;
-      border-radius: 12px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      max-width: 450px;
-      font-size: 1.2em;
-      line-height: 1.4;
-      margin-bottom: 40px;
+      background: rgba(255,255,255,0.95);
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 500px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       text-align: center;
-    }
-    .info strong {
-      color: #0B3C5D;
+      margin-bottom: 40px;
+      font-size: 1.1em;
     }
 
-    /* Botón menú */
+    /* Menú */
     .menu-button {
       position: fixed;
       top: 20px;
       left: 20px;
       background-color: #0B3C5D;
       color: white;
-      border: none;
-      padding: 12px 18px;
+      padding: 10px 18px;
       border-radius: 30px;
       font-size: 1.1em;
+      border: none;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: background-color 0.3s ease;
-      z-index: 1100;
-    }
-    .menu-button:hover {
-      background-color: #06314a;
+      z-index: 999;
     }
 
-    /* Panel desplegable menú */
+    .menu-button:hover {
+      background: #06314a;
+    }
+
     .menu-content {
       position: fixed;
       top: 70px;
       left: 20px;
-      background: rgba(255,255,255,0.95);
-      padding: 20px 25px;
+      background: rgba(255,255,255,0.98);
       border-radius: 15px;
+      padding: 20px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      max-width: 320px;
-      font-size: 1.1em;
-      line-height: 1.5;
+      width: 300px;
       display: none;
-      z-index: 1050;
-    }
-    .menu-content h3 {
-      margin-top: 0;
-      color: #0B3C5D;
-      margin-bottom: 15px;
+      z-index: 998;
     }
 
-    /* Contenido para cada sección menú */
-    .menu-section {
-      display: none;
-    }
-    .menu-section.active {
-      display: block;
-    }
-
-    /* Navegación interna menú */
     .menu-nav {
       display: flex;
       gap: 10px;
       margin-bottom: 15px;
     }
+
     .menu-nav button {
       flex: 1;
-      padding: 8px 12px;
+      padding: 10px;
       background: #0B3C5D;
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
+      font-weight: bold;
+      transition: all 0.3s ease;
     }
+
     .menu-nav button.active,
     .menu-nav button:hover {
       background: #25D366;
-      color: white;
     }
 
-    /* Redes sociales centradas abajo */
-    .social-panel {
-      background: rgba(255,255,255,0.9);
-      padding: 15px 25px;
-      border-radius: 30px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      display: flex;
-      gap: 40px;
-      justify-content: center;
-      align-items: center;
-      max-width: 500px;
-      width: 90vw;
-      margin: 0 auto 30px;
-      font-weight: 600;
-      font-size: 1.1em;
+    .menu-section {
+      display: none;
     }
+
+    .menu-section.active {
+      display: block;
+    }
+
+    /* Redes sociales */
+    .social-panel {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 20px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+      max-width: 700px;
+      width: 100%;
+      font-size: 1.1em;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+
     .social-panel a {
       display: flex;
       align-items: center;
       gap: 10px;
-      color: #0B3C5D;
       text-decoration: none;
-      transition: color 0.3s ease;
+      color: #0B3C5D;
+      transition: all 0.3s ease;
     }
+
     .social-panel a:hover {
       color: #25D366;
     }
+
     .social-panel img {
       width: 28px;
       height: 28px;
     }
 
-    /* Botón WhatsApp estilo */
+    /* WhatsApp botón especial */
     .whatsapp-button {
       background-color: #25D366;
       color: white;
-      font-weight: bold;
       padding: 10px 18px;
       border-radius: 30px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       text-decoration: none;
       display: flex;
       align-items: center;
       gap: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       font-size: 1.1em;
-      transition: background-color 0.3s ease;
     }
+
     .whatsapp-button:hover {
       background-color: #1ebe57;
-    }
-    .whatsapp-icon {
-      width: 28px;
-      height: 28px;
     }
 
     /* Responsive */
     @media (max-width: 600px) {
-      .info {
-        max-width: 90vw;
-        font-size: 1em;
+      .menu-button {
+        left: 50%;
+        transform: translateX(-50%);
       }
+
+      .menu-content {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90vw;
+      }
+
       .social-panel {
         flex-direction: column;
-        gap: 20px;
-        max-width: 90vw;
+        align-items: center;
         font-size: 1em;
       }
-      .menu-content {
+
+      .info {
         max-width: 90vw;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .menu-button {
-        top: 15px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .menu-nav {
-        flex-direction: column;
-        gap: 8px;
       }
     }
   </style>
@@ -223,14 +204,14 @@
 
   <div class="menu-content" id="menuContent">
     <div class="menu-nav">
-      <button class="active" data-section="servicios">Nuestros Servicios</button>
+      <button class="active" data-section="servicios">Servicios</button>
       <button data-section="ubicacion">Ubicación</button>
     </div>
     <div id="servicios" class="menu-section active">
       <h3>Nuestros Servicios</h3>
-      <p>- Venta de frutas y verduras frescas</p>
-      <p>- Envíos a domicilio en Ricaurte, Girardot y Flandes</p>
-      <p>- Atención personalizada y calidad garantizada</p>
+      <p>• Frutas y verduras frescas</p>
+      <p>• Envíos a Ricaurte, Girardot y Flandes</p>
+      <p>• Atención personalizada</p>
     </div>
     <div id="ubicacion" class="menu-section">
       <h3>Ubicación</h3>
@@ -246,21 +227,21 @@
 
   <div class="info">
     <p><strong>📞 Teléfono:</strong> 304 414 1529</p>
-    <p><strong>🚚 Envíos a domicilio:</strong> Ricaurte, Girardot y Flandes</p>
+    <p><strong>🚚 Envíos:</strong> Ricaurte, Girardot y Flandes</p>
     <p><strong>⏰ Horarios:</strong> Lunes a Sábado 7:00 AM - 7:00 PM</p>
   </div>
 
-  <!-- Redes sociales centradas abajo -->
+  <!-- Redes sociales -->
   <div class="social-panel">
-    <a href="https://wa.me/573044141529" target="_blank" class="whatsapp-button" aria-label="Contactar por WhatsApp">
-      <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
+    <a href="https://wa.me/573044141529" target="_blank" class="whatsapp-button" aria-label="WhatsApp">
+      <img src="whatsapp.svg" alt="WhatsApp" />
       WhatsApp
     </a>
-    <a href="https://instagram.com/guadalupe_del_campo" target="_blank" aria-label="Instagram">
+    <a href="https://instagram.com/guadalupe_del_campo" target="_blank">
       <img src="instagram.png" alt="Instagram" />
       @guadalupe_del_campo
     </a>
-    <a href="https://facebook.com/guadalupe_del_campo" target="_blank" aria-label="Facebook">
+    <a href="https://facebook.com/guadalupe_del_campo" target="_blank">
       <img src="ifacebok.png" alt="Facebook" />
       @guadalupe_del_campo
     </a>
@@ -272,19 +253,14 @@
     const navButtons = menuContent.querySelectorAll('.menu-nav button');
     const sections = menuContent.querySelectorAll('.menu-section');
 
-    // Mostrar/ocultar menú
     menuBtn.addEventListener('click', () => {
       menuContent.style.display = menuContent.style.display === 'block' ? 'none' : 'block';
     });
 
-    // Cambiar sección activa al hacer clic en los botones
     navButtons.forEach(button => {
       button.addEventListener('click', () => {
-        // Activar botón clickeado y desactivar otros
         navButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
-
-        // Mostrar sección relacionada, ocultar otras
         const target = button.getAttribute('data-section');
         sections.forEach(section => {
           section.classList.toggle('active', section.id === target);
@@ -295,4 +271,3 @@
 
 </body>
 </html>
-
