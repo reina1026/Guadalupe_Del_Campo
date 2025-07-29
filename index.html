@@ -61,63 +61,6 @@
       color: #0B3C5D;
     }
 
-    /* Redes sociales fijas a la derecha */
-    .social-panel {
-      position: fixed;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      background: rgba(255,255,255,0.95);
-      padding: 15px 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      align-items: center;
-      z-index: 1000;
-    }
-    .social-panel a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #0B3C5D;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1em;
-      transition: color 0.3s ease;
-    }
-    .social-panel a:hover {
-      color: #25D366; /* verde WhatsApp */
-    }
-    .social-panel img {
-      width: 28px;
-      height: 28px;
-    }
-
-    /* Botón WhatsApp grande en panel */
-    .whatsapp-button {
-      background-color: #25D366;
-      color: white;
-      font-weight: bold;
-      padding: 12px 24px;
-      border-radius: 30px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 1.1em;
-      transition: background-color 0.3s ease;
-    }
-    .whatsapp-button:hover {
-      background-color: #1ebe57;
-    }
-    .whatsapp-icon {
-      width: 28px;
-      height: 28px;
-    }
-
     /* Botón menú */
     .menu-button {
       position: fixed;
@@ -138,7 +81,7 @@
       background-color: #06314a;
     }
 
-    /* Panel desplegable */
+    /* Panel desplegable menú */
     .menu-content {
       position: fixed;
       top: 70px;
@@ -147,7 +90,7 @@
       padding: 20px 25px;
       border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      max-width: 300px;
+      max-width: 320px;
       font-size: 1.1em;
       line-height: 1.5;
       display: none;
@@ -156,9 +99,93 @@
     .menu-content h3 {
       margin-top: 0;
       color: #0B3C5D;
+      margin-bottom: 15px;
     }
-    .menu-content p {
-      margin-bottom: 10px;
+
+    /* Contenido para cada sección menú */
+    .menu-section {
+      display: none;
+    }
+    .menu-section.active {
+      display: block;
+    }
+
+    /* Navegación interna menú */
+    .menu-nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    .menu-nav button {
+      flex: 1;
+      padding: 8px 12px;
+      background: #0B3C5D;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .menu-nav button.active,
+    .menu-nav button:hover {
+      background: #25D366;
+      color: white;
+    }
+
+    /* Redes sociales centradas abajo */
+    .social-panel {
+      background: rgba(255,255,255,0.9);
+      padding: 15px 25px;
+      border-radius: 30px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      align-items: center;
+      max-width: 500px;
+      width: 90vw;
+      margin: 0 auto 30px;
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+    .social-panel a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #0B3C5D;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .social-panel a:hover {
+      color: #25D366;
+    }
+    .social-panel img {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* Botón WhatsApp estilo */
+    .whatsapp-button {
+      background-color: #25D366;
+      color: white;
+      font-weight: bold;
+      padding: 10px 18px;
+      border-radius: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease;
+    }
+    .whatsapp-button:hover {
+      background-color: #1ebe57;
+    }
+    .whatsapp-icon {
+      width: 28px;
+      height: 28px;
     }
 
     /* Responsive */
@@ -168,13 +195,10 @@
         font-size: 1em;
       }
       .social-panel {
-        flex-direction: row;
-        position: fixed;
-        bottom: 10px;
-        right: 50%;
-        transform: translateX(50%);
-        padding: 10px 15px;
-        border-radius: 40px;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 90vw;
+        font-size: 1em;
       }
       .menu-content {
         max-width: 90vw;
@@ -186,6 +210,10 @@
         left: 50%;
         transform: translateX(-50%);
       }
+      .menu-nav {
+        flex-direction: column;
+        gap: 8px;
+      }
     }
   </style>
 </head>
@@ -194,13 +222,20 @@
   <button class="menu-button" id="menuBtn">☰ Menú</button>
 
   <div class="menu-content" id="menuContent">
-    <h3>Nuestros Servicios</h3>
-    <p>- Venta de frutas y verduras frescas</p>
-    <p>- Envíos a domicilio en Ricaurte, Girardot y Flandes</p>
-    <p>- Atención personalizada y calidad garantizada</p>
-
-    <h3>Ubicación</h3>
-    <p>📍 Cr 15 #5-38 Centro de Ricaurte</p>
+    <div class="menu-nav">
+      <button class="active" data-section="servicios">Nuestros Servicios</button>
+      <button data-section="ubicacion">Ubicación</button>
+    </div>
+    <div id="servicios" class="menu-section active">
+      <h3>Nuestros Servicios</h3>
+      <p>- Venta de frutas y verduras frescas</p>
+      <p>- Envíos a domicilio en Ricaurte, Girardot y Flandes</p>
+      <p>- Atención personalizada y calidad garantizada</p>
+    </div>
+    <div id="ubicacion" class="menu-section">
+      <h3>Ubicación</h3>
+      <p>📍 Cr 15 #5-38 Centro de Ricaurte</p>
+    </div>
   </div>
 
   <h1>Guadalupe del Campo</h1>
@@ -215,7 +250,7 @@
     <p><strong>⏰ Horarios:</strong> Lunes a Sábado 7:00 AM - 7:00 PM</p>
   </div>
 
-  <!-- Panel redes sociales -->
+  <!-- Redes sociales centradas abajo -->
   <div class="social-panel">
     <a href="https://wa.me/573044141529" target="_blank" class="whatsapp-button" aria-label="Contactar por WhatsApp">
       <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
@@ -234,15 +269,30 @@
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const menuContent = document.getElementById('menuContent');
+    const navButtons = menuContent.querySelectorAll('.menu-nav button');
+    const sections = menuContent.querySelectorAll('.menu-section');
 
+    // Mostrar/ocultar menú
     menuBtn.addEventListener('click', () => {
-      if (menuContent.style.display === 'block') {
-        menuContent.style.display = 'none';
-      } else {
-        menuContent.style.display = 'block';
-      }
+      menuContent.style.display = menuContent.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Cambiar sección activa al hacer clic en los botones
+    navButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Activar botón clickeado y desactivar otros
+        navButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Mostrar sección relacionada, ocultar otras
+        const target = button.getAttribute('data-section');
+        sections.forEach(section => {
+          section.classList.toggle('active', section.id === target);
+        });
+      });
     });
   </script>
 
 </body>
 </html>
+
