@@ -13,113 +13,236 @@
       background-attachment: fixed;
       background-size: cover;
       color: #0B3C5D;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      backdrop-filter: brightness(0.9);
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
-      margin: 0;
-      min-height: 100vh;
-      backdrop-filter: brightness(0.9);
-      max-width: 100%;
     }
+
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 2.5em;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.7);
+    }
+
     .logo-placeholder {
       width: 300px;
       height: 150px;
-      border: 2px dashed #aaa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 30px;
+      border-radius: 10px;
       background: rgba(255,255,255,0.85);
-      color: #666;
-      font-size: 1.2em;
-      border-radius: 10px;
-    }
-    .info {
-      font-size: 1.2em;
-      text-align: center;
-      margin-bottom: 20px;
-      background: rgba(255,255,255,0.9);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      max-width: 400px;
-    }
-    .social {
       display: flex;
-      gap: 20px;
       align-items: center;
       justify-content: center;
-      background: rgba(255,255,255,0.9);
-      padding: 15px 25px;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
-    .social a {
-      text-decoration: none;
+    .logo-placeholder img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .info {
+      background: rgba(255,255,255,0.9);
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      max-width: 450px;
+      font-size: 1.2em;
+      line-height: 1.4;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .info strong {
       color: #0B3C5D;
-      font-size: 1em;
+    }
+
+    /* Redes sociales fijas a la derecha */
+    .social-panel {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.95);
+      padding: 15px 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      z-index: 1000;
+    }
+    .social-panel a {
       display: flex;
       align-items: center;
+      gap: 10px;
+      color: #0B3C5D;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1em;
+      transition: color 0.3s ease;
     }
-    .social img {
-      width: 24px;
-      height: 24px;
-      margin-right: 8px;
+    .social-panel a:hover {
+      color: #25D366; /* verde WhatsApp */
     }
+    .social-panel img {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* Botón WhatsApp grande en panel */
     .whatsapp-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       background-color: #25D366;
       color: white;
       font-weight: bold;
-      font-size: 1.2em;
       padding: 12px 24px;
       border-radius: 30px;
-      text-decoration: none;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.1em;
       transition: background-color 0.3s ease;
-      margin-bottom: 40px;
-      gap: 10px;
     }
     .whatsapp-button:hover {
       background-color: #1ebe57;
     }
     .whatsapp-icon {
-      width: 24px;
-      height: 24px;
+      width: 28px;
+      height: 28px;
+    }
+
+    /* Botón menú */
+    .menu-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #0B3C5D;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+      z-index: 1100;
+    }
+    .menu-button:hover {
+      background-color: #06314a;
+    }
+
+    /* Panel desplegable */
+    .menu-content {
+      position: fixed;
+      top: 70px;
+      left: 20px;
+      background: rgba(255,255,255,0.95);
+      padding: 20px 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      max-width: 300px;
+      font-size: 1.1em;
+      line-height: 1.5;
+      display: none;
+      z-index: 1050;
+    }
+    .menu-content h3 {
+      margin-top: 0;
+      color: #0B3C5D;
+    }
+    .menu-content p {
+      margin-bottom: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .info {
+        max-width: 90vw;
+        font-size: 1em;
+      }
+      .social-panel {
+        flex-direction: row;
+        position: fixed;
+        bottom: 10px;
+        right: 50%;
+        transform: translateX(50%);
+        padding: 10px 15px;
+        border-radius: 40px;
+      }
+      .menu-content {
+        max-width: 90vw;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .menu-button {
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
   </style>
 </head>
 <body>
+
+  <button class="menu-button" id="menuBtn">☰ Menú</button>
+
+  <div class="menu-content" id="menuContent">
+    <h3>Nuestros Servicios</h3>
+    <p>- Venta de frutas y verduras frescas</p>
+    <p>- Envíos a domicilio en Ricaurte, Girardot y Flandes</p>
+    <p>- Atención personalizada y calidad garantizada</p>
+
+    <h3>Ubicación</h3>
+    <p>📍 Cr 15 #5-38 Centro de Ricaurte</p>
+  </div>
+
   <h1>Guadalupe del Campo</h1>
 
   <div class="logo-placeholder">
-    <img src="logo.png" alt="Logo Guadalupe del Campo" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+    <img src="logo.png" alt="Logo Guadalupe del Campo" />
   </div>
 
   <div class="info">
-    <h2 style="margin-bottom: 15px; font-size: 1.5em; color: #0B3C5D;">Información de contacto</h2>
-    <p><strong>📍 Dirección:</strong> Cr 15 #5-38 Centro de Ricaurte</p>
     <p><strong>📞 Teléfono:</strong> 304 414 1529</p>
     <p><strong>🚚 Envíos a domicilio:</strong> Ricaurte, Girardot y Flandes</p>
     <p><strong>⏰ Horarios:</strong> Lunes a Sábado 7:00 AM - 7:00 PM</p>
   </div>
 
-  <a href="https://wa.me/573044141529" target="_blank" class="whatsapp-button" aria-label="Contactar por WhatsApp">
-    <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
-    WhatsApp
-  </a>
-
-  <div class="social">
-    <a href="https://instagram.com/guadalupe_del_campo" target="_blank">
-      <img src="instagram.png" alt="Instagram" />@guadalupe_del_campo
+  <!-- Panel redes sociales -->
+  <div class="social-panel">
+    <a href="https://wa.me/573044141529" target="_blank" class="whatsapp-button" aria-label="Contactar por WhatsApp">
+      <img src="whatsapp.svg" alt="WhatsApp" class="whatsapp-icon" />
+      WhatsApp
     </a>
-    <a href="https://facebook.com/guadalupe_del_campo" target="_blank">
-      <img src="ifacebok.png" alt="Facebook" />@guadalupe_del_campo
+    <a href="https://instagram.com/guadalupe_del_campo" target="_blank" aria-label="Instagram">
+      <img src="instagram.png" alt="Instagram" />
+      @guadalupe_del_campo
+    </a>
+    <a href="https://facebook.com/guadalupe_del_campo" target="_blank" aria-label="Facebook">
+      <img src="ifacebok.png" alt="Facebook" />
+      @guadalupe_del_campo
     </a>
   </div>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const menuContent = document.getElementById('menuContent');
+
+    menuBtn.addEventListener('click', () => {
+      if (menuContent.style.display === 'block') {
+        menuContent.style.display = 'none';
+      } else {
+        menuContent.style.display = 'block';
+      }
+    });
+  </script>
+
 </body>
 </html>
