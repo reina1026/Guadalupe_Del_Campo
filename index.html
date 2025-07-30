@@ -3,89 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Guadalupe del Campo - Productos del Campo</title>
+  <title>Guadalupe del Campo - Catálogo de Productos</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f4f2;
-      margin: 0;
-      padding: 20px;
-      color: #0B3C5D;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      color: #0B3C5D;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 20px;
-      text-align: center;
-      transition: transform 0.2s ease;
-    }
-
-    .product-card:hover {
-      transform: scale(1.03);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 15px;
-      margin-bottom: 15px;
-    }
-
-    .product-card h3 {
-      margin: 10px 0 5px;
-      font-size: 1.2em;
-      color: #0B3C5D;
-    }
-
-    .product-card p {
-      margin-bottom: 10px;
-      color: #444;
-      font-weight: bold;
-    }
-
-    .buy-button {
-      display: inline-block;
-      padding: 10px 18px;
-      background-color: #25D366;
-      color: white;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-
-    .buy-button:hover {
-      background-color: #1ebe57;
-    }
+    body { font-family: 'Segoe UI', sans-serif; background: #f7f9f7; margin:0; padding:20px; color:#0B3C5D;}
+    h1 { text-align:center; font-size:2.8em; margin-bottom:10px; }
+    h2 { font-size:2em; margin:40px 0 20px; text-align:center;}
+    .product-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:20px; max-width:1200px; margin:0 auto;}
+    .product-card { background:#fff; border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:15px; text-align:center; transition: transform 0.2s;}
+    .product-card:hover { transform: scale(1.03); }
+    .product-card img { width:100%; height:160px; object-fit:cover; border-radius:15px; margin-bottom:10px; }
+    .product-card h3 { margin:10px 0 5px; font-size:1.1em; color:#0B3C5D;}
+    .product-card p { margin-bottom:10px; color:#444; font-weight:bold; }
+    .buy-button { display:inline-block; padding:8px 16px; background:#25D366; color:#fff; border-radius:30px; text-decoration:none; font-weight:bold; transition:background 0.3s;}
+    .buy-button:hover { background:#1ebe57; }
   </style>
 </head>
 <body>
 
-  <h1>Productos del Campo</h1>
+<h1>Guadalupe del Campo</h1>
 
-  <div class="product-grid">
-    <!-- PRODUCTOS INSERTADOS AQUÍ -->
-    <!-- Puedes seguir agregando más si lo deseas -->
-    [PEGA AQUÍ EL BLOQUE DE TARJETAS GENERADAS]
+<!-- 🥭 Frutas -->
+<h2>Frutas</h2>
+<div class="product-grid">
+  <!-- Un ejemplo con imágenes reales -->
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x160.png?text=Banano+Urab%C3%A1" alt="Banano Urabá">
+    <h3>Banano Urabá</h3>
+    <p>Precio según plaza</p>
+    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Banano%20Urab%C3%A1" class="buy-button">Comprar</a>
   </div>
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x160.png?text=Aguacate+Hass" alt="Aguacate Hass">
+    <h3>Aguacate Hass</h3>
+    <p>Precio según plaza</p>
+    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Aguacate%20Hass" class="buy-button">Comprar</a>
+  </div>
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x160.png?text=Granadilla" alt="Granadilla">
+    <h3>Granadilla</h3>
+    <p>Precio según plaza</p>
+    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Granadilla" class="buy-button">Comprar</a>
+  </div>
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x160.png?text=Mora+de+Castilla" alt="Mora de Castilla">
+    <h3>Mora de Castilla</h3>
+    <p>Precio según plaza</p>
+    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Mora%20de%20Castilla" class="buy-button">Comprar</a>
+  </div>
+  <!-- Agrega más productos similares -->
+</div>
+
+<!-- 🥔 Tubérculos -->
+<h2>Tubérculos</h2>
+<div class="product-grid">
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x160.png?text=Papa+Criolla" alt="Papa Criolla">
+    <h3>Papa Criolla</h3><p>Precio según plaza</p>
+    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Papa%20Criolla" class="buy-button">Comprar</a>
+  </div>
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x160.png?text=Yuca+Armenia" alt="Yuca Armenia">
+    <h3>Yuca Armenia</h3><p>Precio según plaza</p>
+    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Yuca%20Armenia" class="buy-button">Comprar</a>
+  </div>
+</div>
+
+<!-- 🥬 Verduras y Hortalizas -->
+<h2>Verduras y Hortalizas</h2>
+<div class="product-grid">
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x160.png?text=Lechuga" alt="Lechuga">
+    <h3>Lechuga Crespa</h3><p>Precio según plaza</p>
+    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Lechuga%20Crespa" class="buy-button">Comprar</a>
+  </div>
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x160.png?text=Tomate+Chonto" alt="Tomate Chonto">
+    <h3>Tomate Chonto</h3><p>Precio según plaza</><a href="https://wa.me/573044141529?text=Quiero%20comprar%20Tomate%20Chonto" class="buy-button">Comprar</a>
+  </div>
+</div>
+
+<!-- 🌿 Hierbas y Otros -->
+<h2>Hierbas y Otros</h2>
+<div class="product-grid">
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x160.png?text=Perejil+Crespo" alt="Perejil Crespo">
+    <h3>Perejil Crespo</h3><p>Precio según plaza</p>
+    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Perejil%20Crespo" class="buy-button">Comprar</a>
+  </div>
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x160.png?text=Tomillo" alt="Tomillo / Laurel">
+    <h3>Tomillo / Laurel</h3><p>Precio según plaza</p>
+    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Tomillo%20Laurel" class="buy-button">Comprar</a>
+  </div>
+</div>
+
+<!-- 🥣 Pulpas -->
+<h2>Pulpas</h2>
+<div class="product-grid">
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x160.png?text=Pulpa+Maracuy%C3%A1" alt="Pulpa de Maracuyá">
+    <h3>Pulpa de Maracuyá</h3><p>Precio según plaza</p>
+    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Pulpa%20Maracuy%C3%A1" class="buy-button">Comprar</a>
+  </div>
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x160.png?text=Pulpa+Guan%C3%A1bana" alt="Pulpa de Guanábana">
+    <h3>Pulpa de Guanábana</h3><p>Precio según plaza</p>
+    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Pulpa%20Guan%C3%A1bana" class="buy-button">Comprar</a>
+  </div>
+</div>
 
 </body>
 </html>
