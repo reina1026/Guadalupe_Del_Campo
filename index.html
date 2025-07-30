@@ -1,636 +1,358 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Guadalupe del Campo - Catálogo</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #cde7d8, #a6d4ab);
-      margin: 0;
-      padding: 0 20px 40px;
-      color: #333;
-    }
-    header {
-      background: #2c5d34;
-      color: white;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-    }
-    nav {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-    nav a:hover {
-      background-color: #4a904a;
-    }
-    .btn-domicilios {
-      background-color: #4caf50;
-      border: none;
-      color: white;
-      padding: 10px 18px;
-      font-weight: 700;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      text-decoration: none;
-    }
-    .btn-domicilios:hover {
-      background-color: #367c39;
-    }
-    .horarios-text {
-      font-size: 0.9rem;
-      color: #f0f0f0cc;
-      margin-left: 20px;
-      font-style: italic;
-      white-space: nowrap;
-    }
-    h2 {
-      margin-top: 40px;
-      color: #2c5d34;
-      border-bottom: 3px solid #4caf50;
-      padding-bottom: 6px;
-      font-size: 1.6rem;
-    }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-      gap: 18px;
-      margin-top: 20px;
-    }
-    .product-card {
-      background: white;
-      border-radius: 8px;
-      padding: 12px;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .product-card img {
-      max-width: 100%;
-      height: 140px;
-      object-fit: contain;
-      margin-bottom: 10px;
-      border-radius: 6px;
-      background: #f9f9f9;
-      border: 1px solid #ddd;
-    }
-    .product-name {
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 8px;
-      min-height: 40px;
-    }
-    .whatsapp-btn {
-      display: inline-block;
-      background-color: #25d366;
-      color: white;
-      text-decoration: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-      user-select: none;
-    }
-    .whatsapp-btn:hover {
-      background-color: #128c4a;
-    }
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #555;
-    }
-    @media (max-width: 480px) {
-      header {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .horarios-text {
-        margin-left: 0;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Guadalupe del Campo - Catálogo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0; padding: 0;
+    color: #2a2a2a;
+    overflow-x: hidden;
+    background: #a3d9a5;
+    position: relative;
+    min-height: 100vh;
+  }
+  /* Fondo interactivo - partículas */
+  #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0; left: 0;
+    background: linear-gradient(135deg, #d0f0c0, #a3d9a5);
+  }
+  header, footer {
+    background-color: #4caf50cc;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  }
+  nav {
+    background-color: #367c3999;
+    padding: 0.7rem 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    backdrop-filter: blur(6px);
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #e1f5e1;
+    text-decoration: underline;
+  }
+  main {
+    max-width: 900px;
+    margin: 2rem auto 3rem;
+    background: rgba(255 255 255 / 0.9);
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    padding: 2rem 2.5rem;
+  }
+  h1, h2 {
+    margin-top: 0;
+  }
+  .accordion header {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid #4caf50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  .accordion header:hover {
+    color: #2c662d;
+  }
+  .accordion ul {
+    list-style: none;
+    padding-left: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .accordion.open ul {
+    max-height: 1500px; /* grande para todos */
+    padding-top: 0.5rem;
+  }
+  .accordion ul li {
+    margin: 0.4rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+  }
+  .whatsapp-btn {
+    background-color: #25d366;
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+  }
+  .whatsapp-btn:hover {
+    background-color: #128c4a;
+  }
+  section#contacto {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: rgba(255 255 255 / 0.9);
+    padding: 2rem 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  }
+  label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: 1.5px solid #4caf50;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  input:focus, textarea:focus {
+    border-color: #2c662d;
+    outline: none;
+  }
+  button[type="submit"] {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.3rem;
+    border-radius: 7px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button[type="submit"]:hover {
+    background: #2c662d;
+  }
+  footer p {
+    margin: 0.3rem 0;
+  }
+  footer a.social-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 0 1rem;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.3s ease;
+  }
+  footer a.social-link:hover {
+    color: #a6e3a1;
+  }
+  footer a.social-link svg {
+    fill: white;
+    width: 20px; height: 20px;
+  }
+</style>
 </head>
 <body>
 
+<div id="particles-js"></div>
+
 <header>
   <h1>Guadalupe del Campo</h1>
-  <nav>
-    <a href="#servicios">Servicios</a>
-    <a href="#horarios">Horarios</a>
-    <a href="https://wa.me/573044141529?text=Hola,%20quiero%20pedir%20un%20domicilio" target="_blank" class="btn-domicilios">Domicilios</a>
-    <span class="horarios-text">Horario domicilios: 7am - 5pm</span>
-  </nav>
+  <p>Horario general: 7am - 7pm</p>
+  <p>Horario domicilios: 7am - 5pm</p>
+  <a href="https://wa.me/573044141529" target="_blank" style="color:white; background:#25d366; padding:0.6rem 1.2rem; border-radius:7px; text-decoration:none; font-weight:bold;">Pedir Domicilio WhatsApp</a>
 </header>
 
-<main>
+<nav>
+  <a href="#catalogo">Catálogo</a>
+  <a href="#contacto">Contacto</a>
+  <a href="mailto:Guadalupecampofruver@gmail.com" target="_blank">Correo</a>
+</nav>
 
-<section id="servicios">
-  <h2>Servicios</h2>
-  <p>En Guadalupe del Campo ofrecemos productos frescos y de calidad directamente del campo a tu mesa. Contamos con frutas, tubérculos, verduras, hierbas y pulpas, disponibles para entrega a domicilio.</p>
+<main id="catalogo">
+
+<section class="accordion" tabindex="0">
+  <header>🥭 Frutas <span>&#9654;</span></header>
+  <ul>
+    <li>Plátano colicero <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Plátano%20colicero" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Plátano hartón maduro <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Plátano%20hartón%20maduro" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Plátano hartón verde <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Plátano%20hartón%20verde" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Banano Urabá <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Banano%20Urabá" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Banano criollo <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Banano%20criollo" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Aguacate Hass <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Aguacate%20Hass" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Aguacate papelillo <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Aguacate%20papelillo" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Curuba <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Curuba" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Fresa <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Fresa" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Granadilla <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Granadilla" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Guayaba <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Guayaba" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Limón común <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Limón%20común" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Limón Tahití <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Limón%20Tahití" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Lulo <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Lulo" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Mandarina <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mandarina" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Mango azúcar <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mango%20azúcar" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Mango Tommy <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mango%20Tommy" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Manzana nacional <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Manzana%20nacional" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Manzana roja importada <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Manzana%20roja%20importada" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Manzana verde importada <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Manzana%20verde%20importada" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Maracuyá <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Maracuyá" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Melón <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Melón" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Mora de Castilla <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mora%20de%20Castilla" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Naranja <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Naranja" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Papaya <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papaya" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Patilla <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Patilla" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Piña Gold <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Piña%20Gold" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Uva Isabelita bandeja <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Uva%20Isabelita%20bandeja" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Uva chilena roja o verde <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Uva%20chilena" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Agraz <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Agraz" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Arándanos <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Arándanos" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Uchuva <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Uchuva" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Coco <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Coco" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Pera en bandeja importada <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pera%20en%20bandeja%20importada" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Tomate cherry <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Tomate%20cherry" target="_blank" class="whatsapp-btn">Comprar</a></li>
+  </ul>
 </section>
 
-<section id="horarios">
-  <h2>Horario de Atención</h2>
-  <p>Atendemos de lunes a domingo, de 7:00 am a 7:00 pm.</p>
+<section class="accordion" tabindex="0">
+  <header>🥔 Tubérculos <span>&#9654;</span></header>
+  <ul>
+    <li>Papa criolla <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papa%20criolla" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Papa pastusa <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papa%20pastusa" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Papa R12 <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papa%20R12" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Papa sabanera <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papa%20sabanera" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Yuca Armenia o Llanera <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Yuca%20Armenia" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Arracacha <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Arracacha" target="_blank" class="whatsapp-btn">Comprar</a></li>
+  </ul>
 </section>
 
-<!-- 🥭 Frutas -->
-<section>
-  <h2>🥭 Frutas</h2>
-  <div class="products-grid">
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Banana-Single.jpg" alt="Plátano colicero" />
-      <div class="product-name">Plátano colicero</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Plátano%20colicero" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Plantain_2014.jpg" alt="Plátano hartón maduro" />
-      <div class="product-name">Plátano hartón maduro</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Plátano%20hartón%20maduro" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Plantain_green.jpg" alt="Plátano hartón verde" />
-      <div class="product-name">Plátano hartón verde</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Plátano%20hartón%20verde" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Banano.jpg" alt="Banano Urabá" />
-      <div class="product-name">Banano Urabá</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Banano%20Urabá" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Banana-Single-Cavendish.jpg" alt="Banano criollo" />
-      <div class="product-name">Banano criollo</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Banano%20criollo" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Avocado_Duke.jpg" alt="Aguacate Hass" />
-      <div class="product-name">Aguacate Hass</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Aguacate%20Hass" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Persea_americana_1.jpg" alt="Aguacate papelillo" />
-      <div class="product-name">Aguacate papelillo</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Aguacate%20papelillo" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Passiflora_tarminiana_Fruit.jpg" alt="Curuba" />
-      <div class="product-name">Curuba</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Curuba" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Strawberries_and_Raspberries.jpg" alt="Fresa" />
-      <div class="product-name">Fresa</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Fresa" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Granadilla-Passiflora_ligularis.jpg" alt="Granadilla" />
-      <div class="product-name">Granadilla</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Granadilla" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Psidium_guajava_fruit.jpg" alt="Guayaba" />
-      <div class="product-name">Guayaba</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Guayaba" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Lime_1.jpg" alt="Limón común" />
-      <div class="product-name">Limón común</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Limón%20común" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/LemonTahitian.jpg" alt="Limón Tahití" />
-      <div class="product-name">Limón Tahití</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Limón%20Tahití" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Solanum_quitoense_fruit.jpg" alt="Lulo" />
-      <div class="product-name">Lulo</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Lulo" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Mandarin_oranges.jpg" alt="Mandarina" />
-      <div class="product-name">Mandarina</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mandarina" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Mango_Emirate.jpg" alt="Mango azúcar" />
-      <div class="product-name">Mango azúcar</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mango%20azúcar" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Mango_Tommy_Atkins.jpg" alt="Mango Tommy" />
-      <div class="product-name">Mango Tommy</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mango%20Tommy" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Manzana_nacional.jpg" alt="Manzana nacional" />
-      <div class="product-name">Manzana nacional</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Manzana%20nacional" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Manzana_roja.jpg" alt="Manzana roja importada" />
-      <div class="product-name">Manzana roja importada</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Manzana%20roja%20importada" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Green_apple.jpg" alt="Manzana verde importada" />
-      <div class="product-name">Manzana verde importada</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Manzana%20verde%20importada" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Passion_fruit_-_Maracuya_-_Passiflora_edulis.jpg" alt="Maracuyá" />
-      <div class="product-name">Maracuyá</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Maracuyá" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Melon_Fruit.jpg" alt="Melón" />
-      <div class="product-name">Melón</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Melón" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Mora_de_Castilla_-_Blackberry_fruit.JPG" alt="Mora de Castilla" />
-      <div class="product-name">Mora de Castilla</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mora%20de%20Castilla" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Orange-Fruit-Pieces.jpg" alt="Naranja" />
-      <div class="product-name">Naranja</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Naranja" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Papaya_fruit_pieces.jpg" alt="Papaya" />
-      <div class="product-name">Papaya</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papaya" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Watermelon_cross_BNC.jpg" alt="Patilla" />
-      <div class="product-name">Patilla</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Patilla" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Pineapple_and_cross_section.jpg" alt="Piña Gold" />
-      <div class="product-name">Piña Gold</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Piña%20Gold" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Grape_Isabella_Bunch.jpg" alt="Uva Isabelita bandeja" />
-      <div class="product-name">Uva Isabelita bandeja</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Uva%20Isabelita%20bandeja" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Green_grapes_on_vine.jpg" alt="Uva chilena roja o verde" />
-      <div class="product-name">Uva chilena roja o verde</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Uva%20chilena" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Vitis_vinifera_Agrez.jpg" alt="Agraz" />
-      <div class="product-name">Agraz</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Agraz" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-    
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Blueberries_.jpg" alt="Arándanos" />
-      <div class="product-name">Arándanos</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Arándanos" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Physalis_peruviana_1_Luc_Viatour.jpg" alt="Uchuva" />
-      <div class="product-name">Uchuva</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Uchuva" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Coconut-Halves.jpg" alt="Coco" />
-      <div class="product-name">Coco</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Coco" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Pears_on_tree.jpg" alt="Pera en bandeja importada" />
-      <div class="product-name">Pera en bandeja importada</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pera%20en%20bandeja%20importada" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Tomato_Cherry.jpg" alt="Tomate cherry" />
-      <div class="product-name">Tomate cherry</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Tomate%20cherry" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-  </div>
+<section class="accordion" tabindex="0">
+  <header>🥬 Verduras y Hortalizas <span>&#9654;</span></header>
+  <ul>
+    <li>Acelga <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Acelga" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Ahuyama <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Ahuyama" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Ajo <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Ajo" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Arveja <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Arveja" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Apio <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Apio" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Brócoli <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Brócoli" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Cebolla cabezona blanca <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Cebolla%20cabezona%20blanca" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Cebolla cabezona morada <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Cebolla%20cabezona%20morada" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Cebolla larga <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Cebolla%20larga" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Cilantro <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Cilantro" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Coliflor <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Coliflor" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Espinaca <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Espinaca" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Habichuela <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Habichuela" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Lechuga batavia <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Lechuga%20batavia" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Lechuga crespa <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Lechuga%20crespa" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Mazorca (bandeja o unidades) <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mazorca" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Pepino cohombro <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pepino%20cohombro" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Pimentón <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pimentón" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Remolacha <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Remolacha" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Repollo morado <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Repollo%20morado" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Tomate chonto <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Tomate%20chonto" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Tomate larga vida <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Tomate%20larga%20vida" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Zanahoria <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Zanahoria" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Guascas <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Guascas" target="_blank" class="whatsapp-btn">Comprar</a></li>
+  </ul>
 </section>
 
-<!-- 🥔 Tubérculos -->
-<section>
-  <h2>🥔 Tubérculos</h2>
-  <div class="products-grid">
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Papa_criolla.jpg" alt="Papa criolla" />
-      <div class="product-name">Papa criolla</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papa%20criolla" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Yam.jpg" alt="Papa pastusa" />
-      <div class="product-name">Papa pastusa</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papa%20pastusa" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Papa_R12.jpg" alt="Papa R12" />
-      <div class="product-name">Papa R12</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papa%20R12" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Papa_sabanera.jpg" alt="Papa sabanera" />
-      <div class="product-name">Papa sabanera</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papa%20sabanera" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Yuca.jpg" alt="Yuca Armenia o Llanera" />
-      <div class="product-name">Yuca Armenia o Llanera</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Yuca%20Armenia%20o%20Llanera" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Arracacha.jpg" alt="Arracacha" />
-      <div class="product-name">Arracacha</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Arracacha" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-  </div>
+<section class="accordion" tabindex="0">
+  <header>🌿 Hierbas y Otros <span>&#9654;</span></header>
+  <ul>
+    <li>Tomillo / Laurel <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Tomillo" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Perejil crespo <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Perejil%20crespo" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Gengibre <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Gengibre" target="_blank" class="whatsapp-btn">Comprar</a></li>
+  </ul>
 </section>
 
-<!-- 🥬 Verduras y Hortalizas -->
-<section>
-  <h2>🥬 Verduras y Hortalizas</h2>
-  <div class="products-grid">
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Acelga.jpg" alt="Acelga" />
-      <div class="product-name">Acelga</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Acelga" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Pumpkin_cucurbita_maxima.jpg" alt="Ahuyama" />
-      <div class="product-name">Ahuyama</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Ahuyama" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Garlic.jpg" alt="Ajo" />
-      <div class="product-name">Ajo</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Ajo" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Green_Peas_on_plant.jpg" alt="Arveja" />
-      <div class="product-name">Arveja</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Arveja" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Celery_plant.jpg" alt="Apio" />
-      <div class="product-name">Apio</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Apio" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Broccoli_and_cross_section_edit.jpg" alt="Brócoli" />
-      <div class="product-name">Brócoli</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Brócoli" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Onion-White.jpg" alt="Cebolla cabezona blanca" />
-      <div class="product-name">Cebolla cabezona blanca</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Cebolla%20cabezona%20blanca" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Red_Onion.jpg" alt="Cebolla cabezona morada" />
-      <div class="product-name">Cebolla cabezona morada</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Cebolla%20cabezona%20morada" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Green_Onion.JPG" alt="Cebolla larga" />
-      <div class="product-name">Cebolla larga</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Cebolla%20larga" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Coriander-leaves-on-white-background.jpg" alt="Cilantro" />
-      <div class="product-name">Cilantro</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Cilantro" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Cauliflower.JPG" alt="Coliflor" />
-      <div class="product-name">Coliflor</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Coliflor" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Spinach_leaves.jpg" alt="Espinaca" />
-      <div class="product-name">Espinaca</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Espinaca" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Green_Bean.jpg" alt="Habichuela" />
-      <div class="product-name">Habichuela</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Habichuela" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Batavia_lettuce.jpg" alt="Lechuga batavia" />
-      <div class="product-name">Lechuga batavia</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Lechuga%20batavia" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Iceberg_lettuce.jpg" alt="Lechuga crespa" />
-      <div class="product-name">Lechuga crespa</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Lechuga%20crespa" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Maize_on_the_cob.jpg" alt="Mazorca (bandeja o unidades)" />
-      <div class="product-name">Mazorca (bandeja o unidades)</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mazorca" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Pepino_Cohombro.jpg" alt="Pepino cohombro" />
-      <div class="product-name">Pepino cohombro</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pepino%20cohombro" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Pimiento_rojo.jpg" alt="Pimentón" />
-      <div class="product-name">Pimentón</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pimentón" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Beetroot_Chioggia.jpg" alt="Remolacha" />
-      <div class="product-name">Remolacha</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Remolacha" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Red_Cabbage_and_cross_section_edit.jpg" alt="Repollo morado" />
-      <div class="product-name">Repollo morado</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Repollo%20morado" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Tomato_ripe_cherry.jpg" alt="Tomate chonto" />
-      <div class="product-name">Tomate chonto</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Tomate%20chonto" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Tomato_long_life.jpg" alt="Tomate larga vida" />
-      <div class="product-name">Tomate larga vida</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Tomate%20larga%20vida" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Carrot-Whole-Open.jpg" alt="Zanahoria" />
-      <div class="product-name">Zanahoria</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Zanahoria" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Guasca_herb.jpg" alt="Guascas" />
-      <div class="product-name">Guascas</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Guascas" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- 🌿 Hierbas y Otros -->
-<section>
-  <h2>🌿 Hierbas y Otros</h2>
-  <div class="products-grid">
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Thyme_herb.jpg" alt="Tomillo / Laurel" />
-      <div class="product-name">Tomillo / Laurel</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Tomillo%20o%20Laurel" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Parsley_-_Petroselinum_crispum.jpg" alt="Perejil crespo" />
-      <div class="product-name">Perejil crespo</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Perejil%20crespo" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Ginger_Root.jpg" alt="Gengibre" />
-      <div class="product-name">Gengibre</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Gengibre" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- 🥣 Pulpas -->
-<section>
-  <h2>🥣 Pulpas</h2>
-  <div class="products-grid">
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Guanabana-fruit.jpg" alt="Pulpa de guanábana" />
-      <div class="product-name">Pulpa de guanábana</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pulpa%20de%20guanábana" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Passion_fruit_-_Maracuya_-_Passiflora_edulis.jpg" alt="Pulpa de maracuyá" />
-      <div class="product-name">Pulpa de maracuyá</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pulpa%20de%20maracuyá" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-    <div class="product-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Frijol_verde.jpg" alt="Frijol verde" />
-      <div class="product-name">Frijol verde</div>
-      <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Frijol%20verde" target="_blank" class="whatsapp-btn">Comprar</a>
-    </div>
-
-  </div>
+<section class="accordion" tabindex="0">
+  <header>🥣 Pulpas <span>&#9654;</span></header>
+  <ul>
+    <li>Pulpa de guanábana <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pulpa%20de%20guanábana" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Pulpa de maracuyá <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pulpa%20de%20maracuyá" target="_blank" class="whatsapp-btn">Comprar</a></li>
+    <li>Frijol verde <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Frijol%20verde" target="_blank" class="whatsapp-btn">Comprar</a></li>
+  </ul>
 </section>
 
 </main>
 
+<section id="contacto">
+  <h2>Contáctanos</h2>
+  <form action="https://formspree.io/f/mqkopygw" method="POST">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="Nombre" required placeholder="Tu nombre" />
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="Correo" required placeholder="Tu correo" />
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="Mensaje" rows="4" required placeholder="Escribe tu mensaje"></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
 <footer>
-  <p>© 2025 Guadalupe del Campo - Todos los derechos reservados.</p>
+  <p>Correo: <a href="mailto:Guadalupecampofruver@gmail.com" style="color:#d4f7d4;">Guadalupecampofruver@gmail.com</a></p>
+  <p>© 2025 Guadalupe del Campo</p>
+  <div>
+    <a href="https://www.facebook.com/guadalupe_del_campo" target="_blank" class="social-link" aria-label="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24H12v-9.294H9.294v-3.53H12V8.413c0-2.675 1.63-4.134 4.01-4.134 1.143 0 2.123.085 2.41.122v2.795h-1.65c-1.293 0-1.544.617-1.544 1.522v1.995h3.1l-.403 3.53H15.22V24h7.456c.727 0 1.324-.6 1.324-1.326V1.326C24 .6 23.4 0 22.675 0z"/></svg> Facebook
+    </a>
+    <a href="https://www.instagram.com/guadalupe_del_campo" target="_blank" class="social-link" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm8.75 2a1 1 0 110 2 1 1 0 010-2zm-4.25 1.25a4.75 4.75 0 110 9.5 4.75 4.75 0 010-9.5zm0 1.5a3.25 3.25 0 100 6.5 3.25 3.25 0 000-6.5z"/></svg> Instagram
+    </a>
+    <a href="mailto:Guadalupecampofruver@gmail.com" class="social-link" aria-label="Correo Electrónico">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM4 8l8 5 8-5v-2l-8 5-8-5v2z"/></svg> Email
+    </a>
+  </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  particlesJS('particles-js', {
+    particles: {
+      number: { value: 50, density: { enable: true, value_area: 800 } },
+      color: { value: "#4caf50" },
+      shape: { type: "circle" },
+      opacity: { value: 0.3 },
+      size: { value: 6, random: true },
+      move: { enable: true, speed: 2, direction: "none", random: true, out_mode: "out" }
+    },
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onhover: { enable: true, mode: "repulse" },
+        onclick: { enable: true, mode: "push" }
+      },
+      modes: {
+        repulse: { distance: 100 },
+        push: { particles_nb: 4 }
+      }
+    },
+    retina_detect: true
+  });
+
+  // Accordion toggle
+  document.querySelectorAll('.accordion header').forEach(header => {
+    header.addEventListener('click', () => {
+      header.parentElement.classList.toggle('open');
+    });
+  });
+</script>
 
 </body>
 </html>
-
