@@ -1,357 +1,266 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Guadalupe del Campo - Catálogo</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-  body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0; padding: 0;
-    color: #2a2a2a;
-    overflow-x: hidden;
-    background: #a3d9a5;
-    position: relative;
-    min-height: 100vh;
-  }
-  /* Fondo interactivo - partículas */
-  #particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    top: 0; left: 0;
-    background: linear-gradient(135deg, #d0f0c0, #a3d9a5);
-  }
-  header, footer {
-    background-color: #4caf50cc;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    backdrop-filter: blur(6px);
-    box-shadow: 0 0 10px rgba(0,0,0,0.15);
-  }
-  nav {
-    background-color: #367c3999;
-    padding: 0.7rem 1rem;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    backdrop-filter: blur(6px);
-  }
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-  }
-  nav a:hover {
-    color: #e1f5e1;
-    text-decoration: underline;
-  }
-  main {
-    max-width: 900px;
-    margin: 2rem auto 3rem;
-    background: rgba(255 255 255 / 0.9);
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    padding: 2rem 2.5rem;
-  }
-  h1, h2 {
-    margin-top: 0;
-  }
-  .accordion header {
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 1.3rem;
-    padding: 0.5rem 0;
-    border-bottom: 2px solid #4caf50;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    user-select: none;
-  }
-  .accordion header:hover {
-    color: #2c662d;
-  }
-  .accordion ul {
-    list-style: none;
-    padding-left: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-  .accordion.open ul {
-    max-height: 1500px; /* grande para todos */
-    padding-top: 0.5rem;
-  }
-  .accordion ul li {
-    margin: 0.4rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1rem;
-  }
-  .whatsapp-btn {
-    background-color: #25d366;
-    color: white;
-    padding: 0.3rem 0.7rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-  }
-  .whatsapp-btn:hover {
-    background-color: #128c4a;
-  }
-  section#contacto {
-    max-width: 900px;
-    margin: 2rem auto;
-    background: rgba(255 255 255 / 0.9);
-    padding: 2rem 2.5rem;
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-  }
-  label {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 0.3rem;
-  }
-  input, textarea {
-    width: 100%;
-    padding: 0.6rem;
-    margin-bottom: 1rem;
-    border-radius: 6px;
-    border: 1.5px solid #4caf50;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-  }
-  input:focus, textarea:focus {
-    border-color: #2c662d;
-    outline: none;
-  }
-  button[type="submit"] {
-    background: #4caf50;
-    color: white;
-    border: none;
-    padding: 0.7rem 1.3rem;
-    border-radius: 7px;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  button[type="submit"]:hover {
-    background: #2c662d;
-  }
-  footer p {
-    margin: 0.3rem 0;
-  }
-  footer a.social-link {
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
-    margin: 0 1rem;
-    font-size: 1.1rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    transition: color 0.3s ease;
-  }
-  footer a.social-link:hover {
-    color: #a6e3a1;
-  }
-  footer a.social-link svg {
-    fill: white;
-    width: 20px; height: 20px;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guadalupe del Campo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #f0f0f0;
+    }
+    header {
+      background-color: rgba(56, 142, 60, 0.9);
+      color: #e0f2f1;
+      padding: 2rem;
+      text-align: center;
+    }
+    nav {
+      background-color: rgba(46, 125, 50, 0.9);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: #e0f2f1;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      color: #222;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      border-bottom: 2px solid #c8e6c9;
+      padding-bottom: 0.5rem;
+      color: #2e7d32;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      padding: 0.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      color: #222;
+    }
+    .btn {
+      background: #4caf50;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #388e3c;
+    }
+    .btn-ubicacion {
+      display: block;
+      width: fit-content;
+      margin: 2rem auto 0;
+      background: #2e7d32;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .btn-ubicacion:hover {
+      background: #1b5e20;
+    }
+    .producto button {
+      background: #25d366;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .producto button:hover {
+      background: #1ebe57;
+    }
+    .btn-whatsapp {
+      display: block;
+      margin: 2rem auto;
+      background: #25d366;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+    }
+    .btn-whatsapp:hover {
+      background: #1ebe57;
+    }
+    .accordion {
+      background: #4caf50;
+      color: white;
+      cursor: pointer;
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+    .accordion.active, .accordion:hover {
+      background-color: #388e3c;
+    }
+    .panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .producto {
+      padding: 0.5rem;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
 </head>
 <body>
 
-<div id="particles-js"></div>
-
 <header>
   <h1>Guadalupe del Campo</h1>
-  <p>Horario general: 7am - 7pm</p>
-  <p>Horario domicilios: 7am - 5pm</p>
-  <a href="https://wa.me/573044141529" target="_blank" style="color:white; background:#25d366; padding:0.6rem 1.2rem; border-radius:7px; text-decoration:none; font-weight:bold;">Pedir Domicilio WhatsApp</a>
+  <p>Frutas, Verduras y Más - Calidad desde el campo hasta tu mesa</p>
 </header>
 
 <nav>
-  <a href="#catalogo">Catálogo</a>
-  <a href="#contacto">Contacto</a>
-  <a href="mailto:Guadalupecampofruver@gmail.com" target="_blank">Correo</a>
+  <a onclick="togglePanel('panel-frutas')">Frutas</a>
+  <a onclick="togglePanel('panel-tuberculos')">Tubérculos</a>
+  <a onclick="togglePanel('panel-verduras')">Verduras</a>
+  <a onclick="togglePanel('panel-hierbas')">Hierbas</a>
+  <a onclick="togglePanel('panel-pulpas')">Pulpas</a>
+  <a onclick="scrollToSection('ubicacion')">Ubicación</a>
 </nav>
 
-<main id="catalogo">
+<main>
+  <button class="accordion" onclick="togglePanel('panel-frutas')">🥭 Frutas</button>
+  <div id="panel-frutas" class="panel"><ul id="lista-frutas"></ul></div>
 
-<section class="accordion" tabindex="0">
-  <header>🥭 Frutas <span>&#9654;</span></header>
-  <ul>
-    <li>Plátano colicero <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Plátano%20colicero" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Plátano hartón maduro <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Plátano%20hartón%20maduro" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Plátano hartón verde <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Plátano%20hartón%20verde" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Banano Urabá <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Banano%20Urabá" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Banano criollo <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Banano%20criollo" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Aguacate Hass <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Aguacate%20Hass" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Aguacate papelillo <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Aguacate%20papelillo" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Curuba <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Curuba" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Fresa <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Fresa" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Granadilla <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Granadilla" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Guayaba <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Guayaba" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Limón común <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Limón%20común" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Limón Tahití <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Limón%20Tahití" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Lulo <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Lulo" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Mandarina <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mandarina" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Mango azúcar <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mango%20azúcar" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Mango Tommy <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mango%20Tommy" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Manzana nacional <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Manzana%20nacional" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Manzana roja importada <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Manzana%20roja%20importada" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Manzana verde importada <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Manzana%20verde%20importada" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Maracuyá <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Maracuyá" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Melón <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Melón" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Mora de Castilla <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mora%20de%20Castilla" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Naranja <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Naranja" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Papaya <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papaya" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Patilla <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Patilla" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Piña Gold <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Piña%20Gold" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Uva Isabelita bandeja <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Uva%20Isabelita%20bandeja" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Uva chilena roja o verde <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Uva%20chilena" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Agraz <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Agraz" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Arándanos <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Arándanos" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Uchuva <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Uchuva" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Coco <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Coco" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Pera en bandeja importada <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pera%20en%20bandeja%20importada" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Tomate cherry <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Tomate%20cherry" target="_blank" class="whatsapp-btn">Comprar</a></li>
-  </ul>
-</section>
+  <button class="accordion" onclick="togglePanel('panel-tuberculos')">🥔 Tubérculos</button>
+  <div id="panel-tuberculos" class="panel"><ul id="lista-tuberculos"></ul></div>
 
-<section class="accordion" tabindex="0">
-  <header>🥔 Tubérculos <span>&#9654;</span></header>
-  <ul>
-    <li>Papa criolla <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papa%20criolla" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Papa pastusa <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papa%20pastusa" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Papa R12 <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papa%20R12" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Papa sabanera <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papa%20sabanera" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Yuca Armenia o Llanera <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Yuca%20Armenia" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Arracacha <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Arracacha" target="_blank" class="whatsapp-btn">Comprar</a></li>
-  </ul>
-</section>
+  <button class="accordion" onclick="togglePanel('panel-verduras')">🥬 Verduras y Hortalizas</button>
+  <div id="panel-verduras" class="panel"><ul id="lista-verduras"></ul></div>
 
-<section class="accordion" tabindex="0">
-  <header>🥬 Verduras y Hortalizas <span>&#9654;</span></header>
-  <ul>
-    <li>Acelga <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Acelga" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Ahuyama <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Ahuyama" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Ajo <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Ajo" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Arveja <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Arveja" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Apio <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Apio" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Brócoli <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Brócoli" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Cebolla cabezona blanca <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Cebolla%20cabezona%20blanca" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Cebolla cabezona morada <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Cebolla%20cabezona%20morada" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Cebolla larga <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Cebolla%20larga" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Cilantro <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Cilantro" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Coliflor <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Coliflor" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Espinaca <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Espinaca" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Habichuela <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Habichuela" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Lechuga batavia <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Lechuga%20batavia" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Lechuga crespa <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Lechuga%20crespa" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Mazorca (bandeja o unidades) <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Mazorca" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Pepino cohombro <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pepino%20cohombro" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Pimentón <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pimentón" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Remolacha <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Remolacha" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Repollo morado <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Repollo%20morado" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Tomate chonto <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Tomate%20chonto" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Tomate larga vida <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Tomate%20larga%20vida" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Zanahoria <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Zanahoria" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Guascas <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Guascas" target="_blank" class="whatsapp-btn">Comprar</a></li>
-  </ul>
-</section>
+  <button class="accordion" onclick="togglePanel('panel-hierbas')">🌿 Hierbas y Otros</button>
+  <div id="panel-hierbas" class="panel"><ul id="lista-hierbas"></ul></div>
 
-<section class="accordion" tabindex="0">
-  <header>🌿 Hierbas y Otros <span>&#9654;</span></header>
-  <ul>
-    <li>Tomillo / Laurel <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Tomillo" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Perejil crespo <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Perejil%20crespo" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Gengibre <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Gengibre" target="_blank" class="whatsapp-btn">Comprar</a></li>
-  </ul>
-</section>
+  <button class="accordion" onclick="togglePanel('panel-pulpas')">🥣 Pulpas</button>
+  <div id="panel-pulpas" class="panel"><ul id="lista-pulpas"></ul></div>
 
-<section class="accordion" tabindex="0">
-  <header>🥣 Pulpas <span>&#9654;</span></header>
-  <ul>
-    <li>Pulpa de guanábana <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pulpa%20de%20guanábana" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Pulpa de maracuyá <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pulpa%20de%20maracuyá" target="_blank" class="whatsapp-btn">Comprar</a></li>
-    <li>Frijol verde <a href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Frijol%20verde" target="_blank" class="whatsapp-btn">Comprar</a></li>
-  </ul>
-</section>
+  <section id="ubicacion">
+    <h2>📍 Ubicación</h2>
+    <p>Nos encontramos en Ricaurte, Cundinamarca.</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.2321751453295!2d-74.59863588561164!3d4.273718843627299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b08bb8e8a8b%3A0x8b7c7d2d9bce1234!2sRicaurte%2C%20Cundinamarca%2C%20Colombia!5e0!3m2!1ses!2sco!4v1685117105839!5m2!1ses!2sco" width="100%" height="250" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
 
+  <a onclick="scrollToSection('ubicacion')" class="btn-ubicacion">📍 Ver Ubicación</a>
+
+  <section>
+    <h2>👩‍🌾 Cofundadora</h2>
+    <p>Jenny Patiño</p>
+    <p>Teléfono: <a href="tel:+573012574497">301 257 4497</a></p>
+    <p>Correo: <a href="mailto:Guadalupecampofruver@gmail.com">Guadalupecampofruver@gmail.com</a></p>
+  </section>
+
+  <button class="btn-whatsapp" onclick="enviarPorWhatsapp()">Enviar pedido por WhatsApp</button>
 </main>
 
-<section id="contacto">
-  <h2>Contáctanos</h2>
-  <form action="https://formspree.io/f/mqkopygw" method="POST">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="Nombre" required placeholder="Tu nombre" />
-    <label for="email">Correo electrónico:</label>
-    <input type="email" id="email" name="Correo" required placeholder="Tu correo" />
-    <label for="mensaje">Mensaje:</label>
-    <textarea id="mensaje" name="Mensaje" rows="4" required placeholder="Escribe tu mensaje"></textarea>
-    <button type="submit">Enviar</button>
-  </form>
-</section>
-
-<footer>
-  <p>Correo: <a href="mailto:Guadalupecampofruver@gmail.com" style="color:#d4f7d4;">Guadalupecampofruver@gmail.com</a></p>
-  <p>© 2025 Guadalupe del Campo</p>
-  <div>
-    <a href="https://www.facebook.com/guadalupe_del_campo" target="_blank" class="social-link" aria-label="Facebook">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24H12v-9.294H9.294v-3.53H12V8.413c0-2.675 1.63-4.134 4.01-4.134 1.143 0 2.123.085 2.41.122v2.795h-1.65c-1.293 0-1.544.617-1.544 1.522v1.995h3.1l-.403 3.53H15.22V24h7.456c.727 0 1.324-.6 1.324-1.326V1.326C24 .6 23.4 0 22.675 0z"/></svg> Facebook
-    </a>
-    <a href="https://www.instagram.com/guadalupe_del_campo" target="_blank" class="social-link" aria-label="Instagram">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm8.75 2a1 1 0 110 2 1 1 0 010-2zm-4.25 1.25a4.75 4.75 0 110 9.5 4.75 4.75 0 010-9.5zm0 1.5a3.25 3.25 0 100 6.5 3.25 3.25 0 000-6.5z"/></svg> Instagram
-    </a>
-    <a href="mailto:Guadalupecampofruver@gmail.com" class="social-link" aria-label="Correo Electrónico">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM4 8l8 5 8-5v-2l-8 5-8-5v2z"/></svg> Email
-    </a>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
-  particlesJS('particles-js', {
-    particles: {
-      number: { value: 50, density: { enable: true, value_area: 800 } },
-      color: { value: "#4caf50" },
-      shape: { type: "circle" },
-      opacity: { value: 0.3 },
-      size: { value: 6, random: true },
-      move: { enable: true, speed: 2, direction: "none", random: true, out_mode: "out" }
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: { enable: true, mode: "repulse" },
-        onclick: { enable: true, mode: "push" }
-      },
-      modes: {
-        repulse: { distance: 100 },
-        push: { particles_nb: 4 }
-      }
-    },
-    retina_detect: true
-  });
+  const productos = {
+    frutas: ["Plátano colicero", "Plátano hartón maduro", "Plátano hartón verde", "Banano Urabá", "Banano criollo", "Aguacate Hass", "Aguacate papelillo", "Curuba", "Fresa", "Granadilla", "Guayaba", "Limón común", "Limón Tahití", "Lulo", "Mandarina", "Mango azúcar", "Mango Tommy", "Manzana nacional", "Manzana roja importada", "Manzana verde importada", "Maracuyá", "Melón", "Mora de Castilla", "Naranja", "Papaya", "Patilla", "Piña Gold", "Uva Isabelita bandeja", "Uva chilena roja o verde", "Agraz", "Arándanos", "Uchuva", "Coco", "Pera en bandeja importada", "Tomate cherry"],
+    tuberculos: ["Papa criolla", "Papa pastusa", "Papa R12", "Papa sabanera", "Yuca Armenia o Llanera", "Arracacha"],
+    verduras: ["Acelga", "Ahuyama", "Ajo", "Arveja", "Apio", "Brócoli", "Cebolla cabezona blanca", "Cebolla cabezona morada", "Cebolla larga", "Cilantro", "Coliflor", "Espinaca", "Habichuela", "Lechuga batavia", "Lechuga crespa", "Mazorca (bandeja o unidades)", "Pepino cohombro", "Pimentón", "Remolacha", "Repollo morado", "Tomate chonto", "Tomate larga vida", "Zanahoria", "Guascas"],
+    hierbas: ["Tomillo / Laurel", "Perejil crespo", "Gengibre"],
+    pulpas: ["Pulpa de guanábana", "Pulpa de maracuyá"]
+  };
 
-  // Accordion toggle
-  document.querySelectorAll('.accordion header').forEach(header => {
-    header.addEventListener('click', () => {
-      header.parentElement.classList.toggle('open');
+  let carrito = [];
+
+  function agregarCarrito(producto) {
+    carrito.push(producto);
+    alert(`${producto} agregado al carrito`);
+  }
+
+  function cargarLista(idLista, items) {
+    const ul = document.getElementById(idLista);
+    items.forEach(nombre => {
+      const li = document.createElement("li");
+      li.classList.add("producto");
+      li.innerHTML = `${nombre} <button onclick="agregarCarrito('${nombre}')">Agregar</button>`;
+      ul.appendChild(li);
     });
-  });
+  }
+
+  function enviarPorWhatsapp() {
+    if (carrito.length === 0) {
+      alert("No hay productos en el carrito.");
+      return;
+    }
+    const mensaje = encodeURIComponent("Hola, quiero pedir:\n" + carrito.map(p => `- ${p}`).join("\n"));
+    const numero = "573044141529";
+    window.open(`https://wa.me/${numero}?text=${mensaje}`, "_blank");
+  }
+
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) section.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function togglePanel(id) {
+    const panel = document.getElementById(id);
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  }
+
+  cargarLista("lista-frutas", productos.frutas);
+  cargarLista("lista-tuberculos", productos.tuberculos);
+  cargarLista("lista-verduras", productos.verduras);
+  cargarLista("lista-hierbas", productos.hierbas);
+  cargarLista("lista-pulpas", productos.pulpas);
 </script>
 
 </body>
