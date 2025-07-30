@@ -1,116 +1,315 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Guadalupe del Campo - Catálogo de Productos</title>
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #f7f9f7; margin:0; padding:20px; color:#0B3C5D;}
-    h1 { text-align:center; font-size:2.8em; margin-bottom:10px; }
-    h2 { font-size:2em; margin:40px 0 20px; text-align:center;}
-    .product-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:20px; max-width:1200px; margin:0 auto;}
-    .product-card { background:#fff; border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:15px; text-align:center; transition: transform 0.2s;}
-    .product-card:hover { transform: scale(1.03); }
-    .product-card img { width:100%; height:160px; object-fit:cover; border-radius:15px; margin-bottom:10px; }
-    .product-card h3 { margin:10px 0 5px; font-size:1.1em; color:#0B3C5D;}
-    .product-card p { margin-bottom:10px; color:#444; font-weight:bold; }
-    .buy-button { display:inline-block; padding:8px 16px; background:#25D366; color:#fff; border-radius:30px; text-decoration:none; font-weight:bold; transition:background 0.3s;}
-    .buy-button:hover { background:#1ebe57; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Guadalupe del Campo - Catálogo con WhatsApp y Redes</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: 
+      linear-gradient(rgba(34, 68, 34, 0.6), rgba(34, 68, 34, 0.6)),
+      url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: #f0f0f0;
+    min-height: 100vh;
+  }
+
+  h1 {
+    text-align: center;
+    margin: 1rem 0;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px #000;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto 3rem;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+
+  section h2 {
+    border-bottom: 2px solid #a4d39f;
+    padding-bottom: 0.3rem;
+    color: #a4d39f;
+    font-weight: 600;
+    font-size: 1.8rem;
+  }
+
+  /* Grid para productos */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .product-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 0.7rem;
+    text-align: center;
+    box-shadow: 0 0 6px #0008;
+    transition: transform 0.2s ease;
+  }
+  .product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #a4d39fcc;
+  }
+
+  .product-card img {
+    max-width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.4rem;
+  }
+
+  .product-name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    color: #d6f0c0;
+  }
+
+  .whatsapp-btn {
+    background-color: #25d366;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+  }
+  .whatsapp-btn:hover {
+    background-color: #1ebe57;
+  }
+
+  /* Botones redes sociales fijos */
+  .social-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .social-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #25d366;
+    box-shadow: 0 2px 6px #0006;
+    transition: background-color 0.3s ease;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+  }
+  .social-buttons a.facebook {
+    background: #3b5998;
+  }
+  .social-buttons a.instagram {
+    background: #e1306c;
+  }
+  .social-buttons a:hover {
+    filter: brightness(85%);
+  }
+
+  /* Íconos SVG para redes */
+  .social-buttons a svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Responsivo */
+  @media (max-width: 600px) {
+    .container {
+      padding: 1rem;
+      margin: 0 1rem 3rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    section h2 {
+      font-size: 1.4rem;
+    }
+
+    .product-card img {
+      height: 80px;
+    }
+
+    .product-name {
+      font-size: 0.9rem;
+    }
+
+    .whatsapp-btn {
+      font-size: 0.8rem;
+      padding: 5px 8px;
+    }
+  }
+</style>
 </head>
 <body>
+  <h1>Guadalupe del Campo - Catálogo de Productos</h1>
+  <div class="container">
 
-<h1>Guadalupe del Campo</h1>
+    <!-- Frutas -->
+    <section>
+      <h2>🥭 Frutas</h2>
+      <div class="products-grid">
+        <!-- Producto ejemplo -->
+        <div class="product-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Plantain_and_Banana_in_the_market.JPG" alt="Plátano colicero" />
+          <div class="product-name">Plátano colicero</div>
+          <a
+            href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Plátano%20colicero"
+            target="_blank"
+            class="whatsapp-btn"
+            >Comprar</a
+          >
+        </div>
 
-<!-- 🥭 Frutas -->
-<h2>Frutas</h2>
-<div class="product-grid">
-  <!-- Un ejemplo con imágenes reales -->
-  <div class="product-card">
-    <img src="https://via.placeholder.com/300x160.png?text=Banano+Urab%C3%A1" alt="Banano Urabá">
-    <h3>Banano Urabá</h3>
-    <p>Precio según plaza</p>
-    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Banano%20Urab%C3%A1" class="buy-button">Comprar</a>
-  </div>
-  <div class="product-card">
-    <img src="https://via.placeholder.com/300x160.png?text=Aguacate+Hass" alt="Aguacate Hass">
-    <h3>Aguacate Hass</h3>
-    <p>Precio según plaza</p>
-    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Aguacate%20Hass" class="buy-button">Comprar</a>
-  </div>
-  <div class="product-card">
-    <img src="https://via.placeholder.com/300x160.png?text=Granadilla" alt="Granadilla">
-    <h3>Granadilla</h3>
-    <p>Precio según plaza</p>
-    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Granadilla" class="buy-button">Comprar</a>
-  </div>
-  <div class="product-card">
-    <img src="https://via.placeholder.com/300x160.png?text=Mora+de+Castilla" alt="Mora de Castilla">
-    <h3>Mora de Castilla</h3>
-    <p>Precio según plaza</p>
-    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Mora%20de%20Castilla" class="buy-button">Comprar</a>
-  </div>
-  <!-- Agrega más productos similares -->
-</div>
+        <div class="product-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Banana_and_plantain_-_granola.jpg" alt="Plátano hartón maduro" />
+          <div class="product-name">Plátano hartón maduro</div>
+          <a
+            href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Plátano%20hartón%20maduro"
+            target="_blank"
+            class="whatsapp-btn"
+            >Comprar</a
+          >
+        </div>
 
-<!-- 🥔 Tubérculos -->
-<h2>Tubérculos</h2>
-<div class="product-grid">
-  <div class="product-card">
-    <img src="https://via.placeholder.com/300x160.png?text=Papa+Criolla" alt="Papa Criolla">
-    <h3>Papa Criolla</h3><p>Precio según plaza</p>
-    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Papa%20Criolla" class="buy-button">Comprar</a>
-  </div>
-  <div class="product-card">
-    <img src="https://via.placeholder.com/300x160.png?text=Yuca+Armenia" alt="Yuca Armenia">
-    <h3>Yuca Armenia</h3><p>Precio según plaza</p>
-    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Yuca%20Armenia" class="buy-button">Comprar</a>
-  </div>
-</div>
+        <!-- Añade más productos aquí con la misma estructura -->
 
-<!-- 🥬 Verduras y Hortalizas -->
-<h2>Verduras y Hortalizas</h2>
-<div class="product-grid">
-  <div class="product-card">
-    <img src="https://via.placeholder.com/300x160.png?text=Lechuga" alt="Lechuga">
-    <h3>Lechuga Crespa</h3><p>Precio según plaza</p>
-    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Lechuga%20Crespa" class="buy-button">Comprar</a>
-  </div>
-  <div class="product-card">
-    <img src="https://via.placeholder.com/300x160.png?text=Tomate+Chonto" alt="Tomate Chonto">
-    <h3>Tomate Chonto</h3><p>Precio según plaza</><a href="https://wa.me/573044141529?text=Quiero%20comprar%20Tomate%20Chonto" class="buy-button">Comprar</a>
-  </div>
-</div>
+        <div class="product-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Banana_and_plantain_-_granola.jpg" alt="Banano Urabá" />
+          <div class="product-name">Banano Urabá</div>
+          <a
+            href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Banano%20Urabá"
+            target="_blank"
+            class="whatsapp-btn"
+            >Comprar</a
+          >
+        </div>
 
-<!-- 🌿 Hierbas y Otros -->
-<h2>Hierbas y Otros</h2>
-<div class="product-grid">
-  <div class="product-card">
-    <img src="https://via.placeholder.com/300x160.png?text=Perejil+Crespo" alt="Perejil Crespo">
-    <h3>Perejil Crespo</h3><p>Precio según plaza</p>
-    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Perejil%20Crespo" class="buy-button">Comprar</a>
-  </div>
-  <div class="product-card">
-    <img src="https://via.placeholder.com/300x160.png?text=Tomillo" alt="Tomillo / Laurel">
-    <h3>Tomillo / Laurel</h3><p>Precio según plaza</p>
-    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Tomillo%20Laurel" class="buy-button">Comprar</a>
-  </div>
-</div>
+        <!-- ... Sigue añadiendo más productos según prefieras ... -->
 
-<!-- 🥣 Pulpas -->
-<h2>Pulpas</h2>
-<div class="product-grid">
-  <div class="product-card">
-    <img src="https://via.placeholder.com/300x160.png?text=Pulpa+Maracuy%C3%A1" alt="Pulpa de Maracuyá">
-    <h3>Pulpa de Maracuyá</h3><p>Precio según plaza</p>
-    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Pulpa%20Maracuy%C3%A1" class="buy-button">Comprar</a>
-  </div>
-  <div class="product-card">
-    <img src="https://via.placeholder.com/300x160.png?text=Pulpa+Guan%C3%A1bana" alt="Pulpa de Guanábana">
-    <h3>Pulpa de Guanábana</h3><p>Precio según plaza</p>
-    <a href="https://wa.me/573044141529?text=Quiero%20comprar%20Pulpa%20Guan%C3%A1bana" class="buy-button">Comprar</a>
-  </div>
-</div>
+      </div>
+    </section>
 
+    <!-- Tubérculos -->
+    <section>
+      <h2>🥔 Tubérculos</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Patates_-_potatoes.jpg" alt="Papa criolla" />
+          <div class="product-name">Papa criolla</div>
+          <a
+            href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Papa%20criolla"
+            target="_blank"
+            class="whatsapp-btn"
+            >Comprar</a
+          >
+        </div>
+        <!-- Añade más productos aquí -->
+      </div>
+    </section>
+
+    <!-- Verduras y Hortalizas -->
+    <section>
+      <h2>🥬 Verduras y Hortalizas</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Broccoli_and_cross_section_edit.jpg" alt="Brócoli" />
+          <div class="product-name">Brócoli</div>
+          <a
+            href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Brócoli"
+            target="_blank"
+            class="whatsapp-btn"
+            >Comprar</a
+          >
+        </div>
+        <!-- Añade más productos aquí -->
+      </div>
+    </section>
+
+    <!-- Hierbas y Otros -->
+    <section>
+      <h2>🌿 Hierbas y Otros</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Parsley_herb.jpg" alt="Perejil crespo" />
+          <div class="product-name">Perejil crespo</div>
+          <a
+            href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Perejil%20crespo"
+            target="_blank"
+            class="whatsapp-btn"
+            >Comprar</a
+          >
+        </div>
+        <!-- Añade más productos aquí -->
+      </div>
+    </section>
+
+    <!-- Pulpas -->
+    <section>
+      <h2>🥣 Pulpas</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Guanabana_fruit.jpg" alt="Pulpa de guanábana" />
+          <div class="product-name">Pulpa de guanábana</div>
+          <a
+            href="https://wa.me/573044141529?text=Hola,%20quiero%20comprar%20Pulpa%20de%20guanábana"
+            target="_blank"
+            class="whatsapp-btn"
+            >Comprar</a
+          >
+        </div>
+        <!-- Añade más productos aquí -->
+      </div>
+    </section>
+  </div>
+
+  <!-- Botones fijos de redes sociales -->
+  <div class="social-buttons">
+    <a href="https://wa.me/573044141529" target="_blank" title="WhatsApp" aria-label="WhatsApp">
+      <!-- Ícono WhatsApp SVG -->
+      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.52 3.48A11.886 11.886 0 0012 0C5.373 0 0 5.373 0 12a11.87 11.87 0 001.59 6.04L0 24l5.99-1.57a11.884 11.884 0 006.01 1.57c6.627 0 12-5.373 12-12 0-3.193-1.246-6.196-3.48-8.52zm-8.517 16.522a9.52 9.52 0 01-4.865-1.389l-.35-.208-3.553.931.95-3.46-.227-.367A9.502 9.502 0 012.5 12c0-5.23 4.25-9.48 9.48-9.48 2.53 0 4.9.987 6.68 2.76a9.433 9.433 0 012.77 6.72c0 5.23-4.25 9.48-9.48 9.48z" />
+        <path d="M17.596 14.662c-.297-.149-1.758-.868-2.03-.967-.273-.099-.47-.149-.669.15-.198.297-.767.967-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.654-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.173.198-.298.298-.497.099-.198.05-.372-.025-.52-.074-.148-.669-1.612-.916-2.206-.242-.58-.487-.501-.669-.51-.173-.007-.372-.009-.57-.009s-.52.074-.792.372c-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.214 3.074.149.198 2.1 3.2 5.077 4.487.709.306 1.26.489 1.69.625.71.227 1.36.195 1.872.118.57-.085 1.758-.718 2.007-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347z" />
+      </svg>
+    </a>
+
+    <a href="https://www.facebook.com/guadalupe_del_campo" target="_blank" class="facebook" title="Facebook" aria-label="Facebook">
+      <!-- Ícono Facebook SVG -->
+      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22.675 0h-21.35C.592 0 0 .593 0 1.326v21.348C0 23.406.592 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.59l-.467 3.622h-3.123V24h6.116c.73 0 1.324-.592 1.324-1.326V1.326C24 .593 23.406 0 22.675 0z"/>
+      </svg>
+    </a>
+
+    <a href="https://www.instagram.com/guadalupe_del_campo" target="_blank" class="instagram" title="Instagram" aria-label="Instagram">
+      <!-- Ícono Instagram SVG -->
+      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4h-8.5zm8.75 2a1 1 0 110 2 1 1 0 010-2zm-4.25 1.5a4.75 4.75 0 110 9.5 4.75 4.75 0 010-9.5zm0 2a2.75 2.75 0 100 5.5 2.75 2.75 0 000-5.5z"/>
+      </svg>
+    </a>
+  </div>
 </body>
 </html>
+
